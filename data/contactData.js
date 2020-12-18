@@ -56,7 +56,7 @@ export const CONTACTS = [
     "bephraim@horizon.ac.ug"
   ),
   new Contact(
-    "st7",
+    "st8",
     "Mr.",
     "Godfrey",
     "Ssekitoleko",
@@ -65,7 +65,7 @@ export const CONTACTS = [
     "gssekitoleko@horizon.ac.ug"
   ),
   new Contact(
-    "st7",
+    "st9",
     "Mr.",
     "Murat",
     "Barkaci",

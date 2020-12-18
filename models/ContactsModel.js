@@ -17,3 +17,5 @@ class ContactModel {
     this.email = email;
   }
 }
+
+export default ContactModel;

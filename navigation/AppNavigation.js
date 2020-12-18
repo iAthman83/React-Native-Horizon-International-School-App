@@ -3,6 +3,7 @@ import Colors from "../constants/Colors";
 
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 
 // import all the screens
 import HomeScreen from "../screens/HomeScreen";
