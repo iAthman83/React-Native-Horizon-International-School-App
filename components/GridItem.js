@@ -3,15 +3,22 @@ import {
   StyleSheet,
   View,
   TouchableNativeFeedback,
+  TouchableOpacity,
   Text,
   Dimensions,
+  Platform,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Card from "./Card";
 
 const GridItem = (props) => {
+  let TouchableCmp = TouchableOpacity;
+
+  if (Platform.OS === "android" && Platform.Version >= 21) {
+    TouchableCmp = TouchableNativeFeedback;
+  }
   return (
-    <TouchableNativeFeedback onPress={props.onSelect}>
+    <TouchableCmp style={{ flex: 1 }} onPress={props.onPress}>
       <Card style={styles.card}>
         <View style={styles.itemContainer}>
           <View
@@ -31,7 +38,7 @@ const GridItem = (props) => {
           <Text style={styles.title}>{props.title}</Text>
         </View>
       </Card>
-    </TouchableNativeFeedback>
+    </TouchableCmp>
   );
 };
 
