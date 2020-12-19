@@ -106,7 +106,7 @@ const ContactFavNavigator =
     : createBottomTabNavigator(tabScreenConfig, {
         tabBarOptions: {
           labelStyle: {},
-          activeTintColor: Colors.accentColor,
+          activeTintColor: Colors.primary,
         },
       });
 
