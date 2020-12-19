@@ -45,6 +45,12 @@ const GridItem = (props) => {
 const styles = StyleSheet.create({
   card: {
     margin: 10,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.25,
+    elevation: 5,
+    backgroundColor: "white",
+    borderRadius: 20,
   },
   itemContainer: {
     width: Dimensions.get("window").width / 2.25,

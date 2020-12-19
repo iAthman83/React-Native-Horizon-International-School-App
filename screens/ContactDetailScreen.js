@@ -4,9 +4,13 @@ import { View, Text, StyleSheet } from "react-native";
 const ContactDetailScreen = (props) => {
   return (
     <View>
-      <Text>Time Table Screen</Text>
+      <Text>Contact Details Screen</Text>
     </View>
   );
+};
+
+ContactDetailScreen.navigationOptions = {
+  headerTitle: "Contact Details",
 };
 
 const styles = StyleSheet.create({});

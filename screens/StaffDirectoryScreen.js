@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import { useSelector } from "react-redux";
 
 // import components to use
-import GridItem from "../components/GridItem";
+import ContactCard from "../components/ContactCards";
 
 const StaffDirectoryScreen = (props) => {
   // extract data from redux contact slice
@@ -14,12 +14,17 @@ const StaffDirectoryScreen = (props) => {
   // function to handle data to the flat list
   const renderItem = (itemData) => {
     return (
-      <GridItem
-        title={itemData.item.firstName}
-        color="dodgerblue"
-        iconName="image"
+      <ContactCard
+        salutation={itemData.item.salutation}
+        lastName={itemData.item.lastName}
+        position={itemData.item.position}
+        imageUrl={itemData.item.imageUrl}
         onPress={() => {
-          console.log("selected");
+          props.navigation.navigate("ContactDetails", {
+            params: {
+              contactId: itemData.item.id,
+            },
+          });
         }}
       />
     );

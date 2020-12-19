@@ -6,7 +6,8 @@ class ContactModel {
     lastName,
     position,
     phoneNumber,
-    email
+    email,
+    imageUrl
   ) {
     this.id = id;
     this.salutation = salutation;
@@ -15,6 +16,7 @@ class ContactModel {
     this.position = position;
     this.phoneNumber = phoneNumber;
     this.email = email;
+    this.imageUrl = imageUrl;
   }
 }
 
