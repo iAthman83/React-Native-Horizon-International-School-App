@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform } from "react-native";
+import { Platform, Text } from "react-native";
 import Colors from "../constants/Colors";
 
 import { createAppContainer } from "react-navigation";
@@ -72,7 +72,7 @@ const tabScreenConfig = {
   Home: {
     screen: AppNavigation,
     navigationOptions: {
-      tabBarLabel: "Home",
+      tabBarLabel: Platform.OS === "android" ? <Text>Home</Text> : "Home",
       tabBarIcon: (tabInfo) => {
         return <Ionicons name="ios-home" size={25} color={tabInfo.tintColor} />;
       },
