@@ -28,9 +28,10 @@ const ContactCards = (props) => {
     <TouchableCmp style={{ flex: 1 }} onPress={props.onPress}>
       <Card style={styles.card}>
         <View style={styles.container}>
-          <Ionicons name="ios-heart" color={Colors.accent} size={26} />
+          {/* <Ionicons name="ios-heart" color={Colors.accent} size={26} /> */}
           <View style={styles.cantactContainer}>
             <View style={styles.namePosition}>
+              {/* <Ionicons name="ios-star" color={Colors.accent} size={26} /> */}
               <View style={styles.salutation}>
                 <Text style={styles.text}>{props.salutation}</Text>
                 <Text> </Text>
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: NiceColors.colors,
     elevation: 5,
     borderRadius: 20,
-    paddingVertical: 10,
+    paddingVertical: 20,
   },
   container: {
     alignItems: "center",
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
   },
   namePosition: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: "center",
     marginLeft: 20,
   },
   salutation: {
@@ -86,14 +87,14 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   imageContainer: {
-    width: 70,
-    height: 70,
+    width: 80,
+    height: 80,
     justifyContent: "flex-end",
     marginRight: 20,
   },
   image: {
-    width: 70,
-    height: 70,
+    width: 80,
+    height: 80,
   },
 });
 

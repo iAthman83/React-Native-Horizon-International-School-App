@@ -25,7 +25,7 @@ export const CONTACTS = [
     "st4",
     "Mr.",
     "Yasin",
-    "Kabacir",
+    "Ozturk",
     "Accountant",
     "+256 781 772 700",
     "vice_principal@horizon.ac.ug",

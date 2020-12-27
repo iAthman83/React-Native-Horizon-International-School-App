@@ -83,15 +83,13 @@ const tabScreenConfig = {
   Favorites: {
     screen: FavNavigator,
     navigationOptions: {
-      tabBarLabel: "Fav Contacts",
+      tabBarLabel: "Favorites",
       tabBarIcon: (tabInfo) => {
-        return (
-          <Ionicons name="ios-heart" size={25} color={tabInfo.tintColor} />
-        );
+        return <Ionicons name="ios-star" size={25} color={tabInfo.tintColor} />;
       },
       tabBarColor: Colors.primary,
       tabBarLabel:
-        Platform.OS === "android" ? <Text>Fav Contacts</Text> : "Fav Contacts",
+        Platform.OS === "android" ? <Text>Favorites</Text> : "Favorites",
     },
   },
 };
