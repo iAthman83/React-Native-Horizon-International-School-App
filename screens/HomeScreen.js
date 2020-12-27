@@ -54,6 +54,8 @@ const HomeScreen = (props) => {
       />
     );
   };
+
+  // Component return statement
   return (
     <FlatList
       data={GRIDITEMS}
