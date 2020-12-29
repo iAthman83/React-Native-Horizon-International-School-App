@@ -20,7 +20,8 @@ const StaffDirectoryScreen = (props) => {
         position={itemData.item.position}
         imageUrl={itemData.item.imageUrl}
         onPress={() => {
-          props.navigation.navigate("ContactDetails", {
+          props.navigation.navigate({
+            routeName: "ContactDetails",
             params: {
               contactId: itemData.item.id,
             },
