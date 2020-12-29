@@ -19,25 +19,25 @@ const GridItem = (props) => {
   }
   return (
     <TouchableCmp style={{ flex: 1 }} onPress={props.onPress}>
-      <Card style={styles.card}>
-        <View style={styles.itemContainer}>
-          <View
-            style={{
-              ...styles.imageContainer,
-              ...{ borderColor: props.color },
-            }}
-          >
-            <View style={styles.image}>
-              <MaterialCommunityIcons
-                name={props.iconName}
-                size={70}
-                color={props.color}
-              />
-            </View>
+      {/* <Card style={styles.card}> */}
+      <View style={styles.itemContainer}>
+        <View
+          style={{
+            ...styles.imageContainer,
+            ...{ backgroundColor: props.color },
+          }}
+        >
+          <View style={styles.image}>
+            <MaterialCommunityIcons
+              name={props.iconName}
+              size={60}
+              color="white"
+            />
           </View>
-          <Text style={styles.title}>{props.title}</Text>
         </View>
-      </Card>
+        <Text style={styles.title}>{props.title}</Text>
+      </View>
+      {/* </Card> */}
     </TouchableCmp>
   );
 };
@@ -56,13 +56,13 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width / 2.25,
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 20,
+    marginVertical: 10,
   },
   imageContainer: {
     width: 100,
     height: 100,
-    borderWidth: 5,
-    borderRadius: 50,
+    // borderWidth: 5,
+    borderRadius: 30,
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 10,
