@@ -18,12 +18,16 @@ const ContactDetailScreen = (props) => {
   const contactId = props.navigation.getParam("contactId");
 
   // retrieve all contact array from redux
-  const contactsFromRedux = useSelector((state) => state.contacts.contacts);
+
+  const contactsRedux = useSelector((state) => state.entities.contacts);
 
   // find the contact that matches with the id from navigation
-  const singleContact = contactsFromRedux.find(
+  const singleContact = contactsRedux.contacts.find(
     (contact) => contact.id === contactId
   );
+  // const singleContact = contactsFromRedux.find(
+  //   (contact) => contact.id === contactId
+  // );
 
   return (
     <View style={styles.container}>

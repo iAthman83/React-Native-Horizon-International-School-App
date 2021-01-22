@@ -1,10 +1,10 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 
 // import redux
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
-import contactReducer from "./store/reducers/contactReducer";
+// import contactReducer from "./store/reducers/contactReducer";
+import configureStore from "./store/configureStore";
 
 import { enableScreens } from "react-native-screens";
 
@@ -16,12 +16,14 @@ import AppNavigation from "./navigation/AppNavigation";
 enableScreens();
 
 // create combined reducers
-const rootReducer = combineReducers({
-  contacts: contactReducer,
-});
+// const rootReducer = combineReducers({
+//   contacts: contactReducer,
+// });
 
 // reate the store for the reducers
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
+
+const store = configureStore();
 
 export default function App() {
   return (

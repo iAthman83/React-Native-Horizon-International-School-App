@@ -9,7 +9,10 @@ import ContactCard from "../components/ContactCards";
 
 const StaffDirectoryScreen = (props) => {
   // extract data from redux contact slice
-  const contacts = useSelector((state) => state.contacts.contacts);
+  // const contacts = useSelector((state) => state.contacts.contacts);
+
+  //
+  const contactsRedux = useSelector((state) => state.entities.contacts);
 
   // function to handle data to the flat list
   const renderItem = (itemData) => {
@@ -32,7 +35,7 @@ const StaffDirectoryScreen = (props) => {
   };
   return (
     <FlatList
-      data={contacts}
+      data={contactsRedux.contacts}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
     />
