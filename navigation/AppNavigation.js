@@ -17,6 +17,7 @@ import StaffDirectoryScreen from "../screens/StaffDirectoryScreen";
 import TimeTableScreen from "../screens/TimeTableScreen";
 import ContactDetailScreen from "../screens/ContactDetailScreen";
 import FavoriteContactScreen from "../screens/FavoriteContactScreen";
+import NewsScreen from "../screens/NewsScreen";
 
 // default stack navigation options
 const defaultstackNavOptions = {
@@ -43,6 +44,9 @@ const AppNavigation = createStackNavigator(
     },
     ContactDetails: {
       screen: ContactDetailScreen,
+    },
+    NewsScreen: {
+      screen: NewsScreen,
     },
   },
   // set up default styling and header names for the headers, as a second argument

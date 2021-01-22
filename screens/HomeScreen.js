@@ -15,7 +15,7 @@ const HomeScreen = (props) => {
         props.navigation.navigate("TimeTable");
         break;
       case "632fc2":
-        console.log("News");
+        props.navigation.navigate("NewsScreen");
         break;
       case "453252":
         console.log("Gallery");
