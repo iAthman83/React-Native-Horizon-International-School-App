@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 // redux actions
-import { loadEvents } from "../store/reducers/events";
+import { loadNews } from "../store/reducers/news";
 
 // components
 import FlatListHorizontalLayout from "../components/FlatListHorizontalLayout";
@@ -14,11 +14,11 @@ import HeaderText from "../components/HeaderText";
 const NewsScreen = (props) => {
   const dispatch = useDispatch();
   // select the events slice from redux
-  const news = useSelector((state) => state.entities.events.list);
+  const news = useSelector((state) => state.entities.news.list);
 
   // useEffect to load list of news item
   useEffect(() => {
-    dispatch(loadEvents);
+    dispatch(loadNews());
   }, []);
 
   // render items for flat list from component
