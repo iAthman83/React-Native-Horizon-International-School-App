@@ -2,6 +2,16 @@ import Contact from "../models/ContactsModel";
 
 export const CONTACTS = [
   new Contact(
+    "st0",
+    "Horizon",
+    "Official",
+    "Contact",
+    "HISU",
+    "+256 776 616 889",
+    "info@horizon.ac.ug",
+    "https://image.flaticon.com/icons/png/256/435/435016.png"
+  ),
+  new Contact(
     "st1",
     "Mr.",
     "Lokman",
@@ -80,5 +90,15 @@ export const CONTACTS = [
     "+256 781 772 700",
     "vice_principal@horizon.ac.ug",
     "https://image.flaticon.com/icons/png/256/435/435028.png"
+  ),
+  new Contact(
+    "st10",
+    "Mr.",
+    "Abubakar",
+    "Athman",
+    "ICT Administrator",
+    "+256 783 373 764",
+    "aabubaker@horizon.ac.ug",
+    "https://image.flaticon.com/icons/png/256/435/435026.png"
   ),
 ];

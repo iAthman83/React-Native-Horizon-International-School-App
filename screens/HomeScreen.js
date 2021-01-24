@@ -24,7 +24,7 @@ const HomeScreen = (props) => {
         props.navigation.navigate("Calendar");
         break;
       case "cf6742":
-        console.log("Events");
+        props.navigation.navigate("Events");
         break;
       case "464d69":
         props.navigation.navigate("StaffDirectory");
