@@ -1,35 +1,64 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 
-import axios from "axios";
+// redux
+import { useDispatch, useSelector } from "react-redux";
 
-import URL from "../utils/URL";
+// redux actions
+import { loadEvents } from "../store/reducers/events";
 
-import { View, Text, StyleSheet } from "react-native";
+// components
+import FlatListHorizontalLayout from "../components/FlatListHorizontalLayout";
+import HeaderText from "../components/HeaderText";
 
 const NewsScreen = (props) => {
-  const newsStrapi = async () => {
-    const strapi = await axios
-      .get(`${URL}/events`)
-      .then((response) => console.log(response.data))
-      .catch((error) => console.log(error));
-    return strapi;
+  const dispatch = useDispatch();
+  // select the events slice from redux
+  const news = useSelector((state) => state.entities.events.list);
+
+  // useEffect to load list of news item
+  useEffect(() => {
+    dispatch(loadEvents);
+  }, []);
+
+  // render items for flat list from component
+  const renderItem = (itemData) => {
+    return (
+      <FlatListHorizontalLayout
+        image={itemData.item.media[0].url}
+        title={itemData.item.title}
+        onPress={() => {
+          props.navigation.navigate({
+            routeName: "EventsDetail",
+            params: {
+              eventId: itemData.item.id,
+            },
+          });
+        }}
+      />
+    );
   };
+
+  //
   return (
     <View style={styles.screen}>
-      <Text onPress={newsStrapi}>Welcome to news screen</Text>
+      <HeaderText title="Horizon Updates" />
+      <FlatList
+        data={news}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+      />
     </View>
   );
 };
 
 NewsScreen.navigationOptions = {
-  headerTitle: "Horizon News",
+  headerTitle: "News Updates",
 };
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
 
