@@ -18,6 +18,7 @@ import TimeTableScreen from "../screens/TimeTableScreen";
 import ContactDetailScreen from "../screens/ContactDetailScreen";
 import FavoriteContactScreen from "../screens/FavoriteContactScreen";
 import NewsScreen from "../screens/NewsScreen";
+import NewsDetailScreen from "../screens/NewsDetailScreen";
 import EventsScreen from "../screens/EventsScreen";
 import EventsDetailScreen from "../screens/EventsDetailScreen";
 
@@ -49,6 +50,9 @@ const AppNavigation = createStackNavigator(
     },
     NewsScreen: {
       screen: NewsScreen,
+    },
+    NewsDetail: {
+      screen: NewsDetailScreen,
     },
     Events: {
       screen: EventsScreen,

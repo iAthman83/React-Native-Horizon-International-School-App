@@ -29,9 +29,9 @@ const NewsScreen = (props) => {
         title={itemData.item.title}
         onPress={() => {
           props.navigation.navigate({
-            routeName: "EventsDetail",
+            routeName: "NewsDetail",
             params: {
-              eventId: itemData.item.id,
+              newsId: itemData.item.id,
             },
           });
         }}
