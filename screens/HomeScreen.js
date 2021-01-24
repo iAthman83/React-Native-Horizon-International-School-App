@@ -49,7 +49,6 @@ const HomeScreen = (props) => {
         color={itemData.item.color}
         iconName={itemData.item.iconName}
         onPress={() => {
-          // props.navigation.navigate("Calendar");
           mapNavigation(itemData.item.id);
         }}
       />
