@@ -19,6 +19,7 @@ import ContactDetailScreen from "../screens/ContactDetailScreen";
 import FavoriteContactScreen from "../screens/FavoriteContactScreen";
 import NewsScreen from "../screens/NewsScreen";
 import EventsScreen from "../screens/EventsScreen";
+import EventsDetailScreen from "../screens/EventsDetailScreen";
 
 // default stack navigation options
 const defaultstackNavOptions = {
@@ -51,6 +52,9 @@ const AppNavigation = createStackNavigator(
     },
     Events: {
       screen: EventsScreen,
+    },
+    EventsDetail: {
+      screen: EventsDetailScreen,
     },
   },
   // set up default styling and header names for the headers, as a second argument

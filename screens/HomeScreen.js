@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 
 // import components
 import GridItem from "../components/GridItem";
+import HeaderText from "../components/HeaderText";
 
 // import data
 import { GRIDITEMS } from "../data/GridItemData";
@@ -57,20 +58,26 @@ const HomeScreen = (props) => {
 
   // Component return statement
   return (
-    <FlatList
-      data={GRIDITEMS}
-      renderItem={renderGridItem}
-      keyExtractor={(item) => item.id}
-      numColumns={2}
-    />
+    <View style={styles.container}>
+      <HeaderText title="Horizon School Portal" />
+      <FlatList
+        data={GRIDITEMS}
+        renderItem={renderGridItem}
+        keyExtractor={(item) => item.id}
+        numColumns={2}
+      />
+    </View>
   );
 };
 
 HomeScreen.navigationOptions = {
-  headerTitle: "Horizon International School",
+  headerTitle: "HISU",
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   screen: {
     flexDirection: "row",
   },

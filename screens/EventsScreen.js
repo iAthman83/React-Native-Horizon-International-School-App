@@ -25,6 +25,14 @@ const EventsScreen = (props) => {
       <FlatListHorizontalLayout
         image={itemData.item.media[0].url}
         title={itemData.item.title}
+        onPress={() => {
+          props.navigation.navigate({
+            routeName: "EventsDetail",
+            params: {
+              eventId: itemData.item.id,
+            },
+          });
+        }}
       />
     );
   };

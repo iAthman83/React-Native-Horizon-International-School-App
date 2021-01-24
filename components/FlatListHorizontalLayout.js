@@ -21,7 +21,7 @@ const FlatListHorizontalLayout = (props) => {
     TouchableCmp = TouchableNativeFeedback;
   }
   return (
-    <TouchableCmp onPress={() => {}}>
+    <TouchableCmp onPress={props.onPress}>
       <Card style={styles.card}>
         <View style={styles.container}>
           <View style={styles.cantactContainer}>

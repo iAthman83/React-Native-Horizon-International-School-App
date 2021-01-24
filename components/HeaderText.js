@@ -7,7 +7,7 @@ import Colors from "../constants/Colors";
 const HeaderText = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{props.title}</Text>
+      <Text style={{ ...styles.title, ...props.style }}>{props.title}</Text>
     </View>
   );
 };
@@ -16,15 +16,15 @@ const styles = StyleSheet.create({
   container: {
     width: Dimensions.get("window").width,
     justifyContent: "center",
-    // alignItems: "center",
+    alignItems: "center",
     backgroundColor: "white",
   },
   title: {
     color: Colors.accent,
-    fontSize: 25,
+    fontSize: 30,
     marginVertical: 10,
-    fontWeight: "600",
-    paddingLeft: 15,
+    fontWeight: "700",
+    // paddingLeft: 20,
   },
 });
 

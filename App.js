@@ -15,14 +15,6 @@ import AppNavigation from "./navigation/AppNavigation";
 
 enableScreens();
 
-// create combined reducers
-// const rootReducer = combineReducers({
-//   contacts: contactReducer,
-// });
-
-// reate the store for the reducers
-// const store = createStore(rootReducer);
-
 const store = configureStore();
 
 export default function App() {

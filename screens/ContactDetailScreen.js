@@ -10,8 +10,8 @@ import {
 import Colors from "../constants/Colors";
 import QuickContactAccess from "../components/QuickContactAccess";
 
+// redux
 import { useSelector } from "react-redux";
-// import { ScrollView } from "react-native-gesture-handler";
 
 const ContactDetailScreen = (props) => {
   // pick the id from the navigation params
