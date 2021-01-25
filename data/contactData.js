@@ -57,7 +57,7 @@ export const CONTACTS = [
     "Rachael",
     "Alyza",
     "Administrator",
-    "+256 781 772 700",
+    "+256 705 372 752",
     "ralyza@horizon.ac.ug",
     "https://image.flaticon.com/icons/png/256/435/435033.png"
   ),

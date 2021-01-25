@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 // import components to use
 import ContactCard from "../components/ContactCards";
+import HeaderText from "../components/HeaderText";
 
 const StaffDirectoryScreen = (props) => {
   // extract data from redux contact slice
@@ -34,11 +35,14 @@ const StaffDirectoryScreen = (props) => {
     );
   };
   return (
-    <FlatList
-      data={contactsRedux.contacts}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-    />
+    <View style={styles.container}>
+      <HeaderText title="Staff Contacts" />
+      <FlatList
+        data={contactsRedux.contacts}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
   );
 };
 
@@ -46,6 +50,10 @@ StaffDirectoryScreen.navigationOptions = {
   headerTitle: "Staff Directory",
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default StaffDirectoryScreen;

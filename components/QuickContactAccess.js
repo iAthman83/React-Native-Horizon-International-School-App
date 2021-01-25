@@ -7,7 +7,12 @@ const QuickContactAccess = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
-        <Ionicons name={props.iconName} size={27} color="white" />
+        <Ionicons
+          name={props.iconName}
+          size={27}
+          color="white"
+          onPress={props.onPress}
+        />
       </View>
       <Text>{props.action}</Text>
     </View>

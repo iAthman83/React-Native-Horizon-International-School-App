@@ -6,12 +6,18 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  Linking,
+  Platform,
+  Alert,
 } from "react-native";
-import Colors from "../constants/Colors";
-import QuickContactAccess from "../components/QuickContactAccess";
 
 // redux
 import { useSelector } from "react-redux";
+
+// components
+import QuickContactAccess from "../components/QuickContactAccess";
+
+import Colors from "../constants/Colors";
 
 const ContactDetailScreen = (props) => {
   // pick the id from the navigation params
@@ -29,6 +35,67 @@ const ContactDetailScreen = (props) => {
   //   (contact) => contact.id === contactId
   // );
 
+  // call when press number
+  const call = () => {
+    let phoneNumber = singleContact.phoneNumber;
+
+    if (Platform.OS === "android") {
+      phoneNumber = `tel:${singleContact.phoneNumber}`;
+    } else {
+      phoneNumber = `telprompt:${singleContact.phoneNumber}`;
+    }
+
+    Linking.canOpenURL(phoneNumber)
+      .then((supported) => {
+        if (!supported) {
+          Alert.alert("Number not Available");
+        } else {
+          return Linking.openURL(phoneNumber);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+  // send message when press number
+  const message = () => {
+    let phoneNumber = singleContact.phoneNumber;
+
+    if (phoneNumber) {
+      phoneNumber = `sms:${singleContact.phoneNumber}`;
+    } else {
+      Alert.alert("Something went wrong, try again");
+    }
+
+    Linking.canOpenURL(phoneNumber)
+      .then((supported) => {
+        if (!supported) {
+          Alert.alert("Number not Available");
+        } else {
+          return Linking.openURL(phoneNumber);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+  // send mail when press number
+  const mail = () => {
+    let emailAddress = singleContact.email;
+
+    if (emailAddress) {
+      emailAddress = `mailto:${singleContact.email}`;
+    } else {
+      Alert.alert("Something went wrong, try again");
+    }
+
+    Linking.canOpenURL(emailAddress)
+      .then((supported) => {
+        if (!supported) {
+          Alert.alert("Number not Available");
+        } else {
+          return Linking.openURL(emailAddress);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -42,9 +109,21 @@ const ContactDetailScreen = (props) => {
           <Text style={styles.nameText}>{singleContact.lastName}</Text>
         </View>
         <View style={{ flexDirection: "row", marginBottom: 10 }}>
-          <QuickContactAccess action="Call" iconName="ios-call" />
-          <QuickContactAccess action="Message" iconName="ios-text" />
-          <QuickContactAccess action="Email" iconName="ios-mail" />
+          <QuickContactAccess
+            action="Call"
+            iconName="ios-call"
+            onPress={call}
+          />
+          <QuickContactAccess
+            action="Message"
+            iconName="ios-text"
+            onPress={message}
+          />
+          <QuickContactAccess
+            action="Email"
+            iconName="ios-mail"
+            onPress={mail}
+          />
         </View>
       </View>
       <ScrollView style={styles.scrollviewContactDetails}>
@@ -56,7 +135,7 @@ const ContactDetailScreen = (props) => {
           }}
         >
           <Text>Mobile</Text>
-          <Text style={{ color: Colors.primary }}>
+          <Text onPress={call} style={{ color: Colors.primary }}>
             {singleContact.phoneNumber}
           </Text>
         </View>
@@ -68,7 +147,9 @@ const ContactDetailScreen = (props) => {
           }}
         >
           <Text>Email</Text>
-          <Text style={{ color: Colors.primary }}>{singleContact.email}</Text>
+          <Text onPress={mail} style={{ color: Colors.primary }}>
+            {singleContact.email}
+          </Text>
         </View>
         <View
           style={{
@@ -77,7 +158,9 @@ const ContactDetailScreen = (props) => {
             paddingVertical: 8,
           }}
         >
-          <Text style={{ color: Colors.primary }}>Send Message</Text>
+          <Text onPress={message} style={{ color: Colors.primary }}>
+            Send Message
+          </Text>
         </View>
         <View
           style={{
@@ -86,7 +169,9 @@ const ContactDetailScreen = (props) => {
             paddingVertical: 8,
           }}
         >
-          <Text style={{ color: Colors.primary }}>Add To Favorites</Text>
+          <Text onPress={() => {}} style={{ color: Colors.primary }}>
+            Add To Favorites
+          </Text>
         </View>
       </ScrollView>
     </View>
