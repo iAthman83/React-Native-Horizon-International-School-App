@@ -21,7 +21,7 @@ const FlatListHorizontalLayout = (props) => {
     TouchableCmp = TouchableNativeFeedback;
   }
   return (
-    <TouchableCmp onPress={props.onPress}>
+    <TouchableOpacity onPress={props.onPress}>
       <Card style={styles.card}>
         <View style={styles.container}>
           <View style={styles.cantactContainer}>
@@ -39,7 +39,7 @@ const FlatListHorizontalLayout = (props) => {
           </View>
         </View>
       </Card>
-    </TouchableCmp>
+    </TouchableOpacity>
   );
 };
 
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.25,
     backgroundColor: NiceColors.colors,
-    elevation: 5,
+    // elevation: 5,
     borderRadius: 20,
     paddingVertical: 20,
   },
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     justifyContent: "flex-end",
-    marginRight: 20,
+    marginRight: 25,
   },
   image: {
     width: 80,

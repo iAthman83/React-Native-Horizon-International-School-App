@@ -18,7 +18,7 @@ const GridItem = (props) => {
     TouchableCmp = TouchableNativeFeedback;
   }
   return (
-    <TouchableCmp style={{ flex: 1 }} onPress={props.onPress}>
+    <TouchableOpacity style={{ flex: 1 }} onPress={props.onPress}>
       {/* <Card style={styles.card}> */}
       <View style={styles.itemContainer}>
         <View
@@ -38,7 +38,7 @@ const GridItem = (props) => {
         <Text style={styles.title}>{props.title}</Text>
       </View>
       {/* </Card> */}
-    </TouchableCmp>
+    </TouchableOpacity>
   );
 };
 
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     backgroundColor: "white",
     borderRadius: 20,
+    overflow: "hidden",
   },
   itemContainer: {
     width: Dimensions.get("window").width / 2.25,

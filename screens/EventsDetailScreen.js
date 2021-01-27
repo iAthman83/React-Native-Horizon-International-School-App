@@ -29,13 +29,13 @@ const EventsDetailScreen = (props) => {
   return (
     <View style={styles.container}>
       <HeaderText title={singleEvent.title} />
+      <View style={styles.imageContainer}>
+        <Image
+          source={{ uri: singleEvent.media[0].url }}
+          style={styles.image}
+        />
+      </View>
       <ScrollView style={styles.scrollView}>
-        <View style={styles.imageContainer}>
-          <Image
-            source={{ uri: singleEvent.media[0].url }}
-            style={styles.image}
-          />
-        </View>
         <DetailText details={singleEvent.content} />
       </ScrollView>
     </View>

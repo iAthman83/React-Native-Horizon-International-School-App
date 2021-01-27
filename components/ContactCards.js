@@ -25,7 +25,7 @@ const ContactCards = (props) => {
     TouchableCmp = TouchableNativeFeedback;
   }
   return (
-    <TouchableCmp style={{ flex: 1 }} onPress={props.onPress}>
+    <TouchableOpacity style={{ flex: 1 }} onPress={props.onPress}>
       <Card style={styles.card}>
         <View style={styles.container}>
           {/* <Ionicons name="ios-heart" color={Colors.accent} size={26} /> */}
@@ -51,7 +51,7 @@ const ContactCards = (props) => {
           </View>
         </View>
       </Card>
-    </TouchableCmp>
+    </TouchableOpacity>
   );
 };
 
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.25,
     backgroundColor: NiceColors.colors,
-    elevation: 5,
+    // elevation: 1,
     borderRadius: 20,
     paddingVertical: 20,
   },
