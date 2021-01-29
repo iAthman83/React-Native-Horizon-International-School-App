@@ -37,8 +37,6 @@ const EventsScreen = (props) => {
     );
   };
 
-  console.log(events);
-
   return (
     <View style={styles.container}>
       <HeaderText title="Horizon Events" />
