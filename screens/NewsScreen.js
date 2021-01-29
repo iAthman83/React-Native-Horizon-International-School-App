@@ -10,11 +10,15 @@ import { loadNews } from "../store/reducers/news";
 // components
 import FlatListHorizontalLayout from "../components/FlatListHorizontalLayout";
 import HeaderText from "../components/HeaderText";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 const NewsScreen = (props) => {
   const dispatch = useDispatch();
   // select the events slice from redux
   const news = useSelector((state) => state.entities.news.list);
+
+  // get loading from state
+  const loading = useSelector((state) => state.entities.news.loading);
 
   // useEffect to load list of news item
   useEffect(() => {
@@ -40,16 +44,25 @@ const NewsScreen = (props) => {
   };
 
   //
-  return (
-    <View style={styles.screen}>
-      <HeaderText title="Horizon Updates" />
-      <FlatList
-        data={news}
-        keyExtractor={(item) => item.id}
-        renderItem={renderItem}
-      />
-    </View>
-  );
+  if (loading) {
+    return (
+      <View style={styles.screen}>
+        <HeaderText title="Horizon Updates" />
+        <LoadingIndicator />
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.screen}>
+        <HeaderText title="Horizon Updates" />
+        <FlatList
+          data={news}
+          keyExtractor={(item) => item.id}
+          renderItem={renderItem}
+        />
+      </View>
+    );
+  }
 };
 
 NewsScreen.navigationOptions = {
