@@ -29,7 +29,7 @@ const NewsScreen = (props) => {
   const renderItem = (itemData) => {
     return (
       <FlatListHorizontalLayout
-        image={itemData.item.media[0].url}
+        image={itemData.item.image[0].url}
         title={itemData.item.title}
         onPress={() => {
           props.navigation.navigate({
@@ -57,7 +57,7 @@ const NewsScreen = (props) => {
         <HeaderText title="Horizon Updates" />
         <FlatList
           data={news}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={renderItem}
         />
       </View>

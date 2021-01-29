@@ -31,7 +31,7 @@ const EventsDetailScreen = (props) => {
       <HeaderText title={singleEvent.title} />
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: singleEvent.media[0].url }}
+          source={{ uri: singleEvent.image[0].url }}
           style={styles.image}
         />
       </View>

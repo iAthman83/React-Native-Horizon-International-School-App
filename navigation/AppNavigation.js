@@ -15,7 +15,7 @@ import HomeScreen from "../screens/HomeScreen";
 import CalendarScreen from "../screens/CalendarScreen";
 import StaffDirectoryScreen from "../screens/StaffDirectoryScreen";
 import TimeTableScreen from "../screens/TimeTableScreen";
-import ContactDetailScreen from "../screens/ContactDetailScreen";
+import ContactDetailScreen from "../screens/StaffDirectoryDetailScreen";
 import FavoriteContactScreen from "../screens/FavoriteContactScreen";
 import NewsScreen from "../screens/NewsScreen";
 import NewsDetailScreen from "../screens/NewsDetailScreen";

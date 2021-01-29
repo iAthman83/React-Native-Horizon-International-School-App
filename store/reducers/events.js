@@ -13,7 +13,7 @@ import moment from "moment";
 // automatically creates action types and
 // action creators
 const slice = createSlice({
-  name: "bugs",
+  name: "events",
   initialState: {
     list: [],
     loading: false,

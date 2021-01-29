@@ -30,7 +30,7 @@ const NewsDetailScreen = (props) => {
     <View style={styles.container}>
       <HeaderText title={singleNews.title} />
       <View style={styles.imageContainer}>
-        <Image source={{ uri: singleNews.media[0].url }} style={styles.image} />
+        <Image source={{ uri: singleNews.image[0].url }} style={styles.image} />
       </View>
       <ScrollView style={styles.scrollView}>
         <DetailText details={singleNews.content} />

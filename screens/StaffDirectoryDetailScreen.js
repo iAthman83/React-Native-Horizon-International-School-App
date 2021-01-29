@@ -25,10 +25,10 @@ const ContactDetailScreen = (props) => {
 
   // retrieve all contact array from redux
 
-  const contactsRedux = useSelector((state) => state.entities.contacts);
+  const contactsRedux = useSelector((state) => state.entities.contacts.list);
 
   // find the contact that matches with the id from navigation
-  const singleContact = contactsRedux.contacts.find(
+  const singleContact = contactsRedux.find(
     (contact) => contact.id === contactId
   );
   // const singleContact = contactsFromRedux.find(
@@ -37,40 +37,40 @@ const ContactDetailScreen = (props) => {
 
   // call when press number
   const call = () => {
-    let phoneNumber = singleContact.phoneNumber;
+    let phone_number = singleContact.phone_number;
 
     if (Platform.OS === "android") {
-      phoneNumber = `tel:${singleContact.phoneNumber}`;
+      phone_number = `tel:${singleContact.phone_number}`;
     } else {
-      phoneNumber = `telprompt:${singleContact.phoneNumber}`;
+      phone_number = `telprompt:${singleContact.phone_number}`;
     }
 
-    Linking.canOpenURL(phoneNumber)
+    Linking.canOpenURL(phone_number)
       .then((supported) => {
         if (!supported) {
           Alert.alert("Number not Available");
         } else {
-          return Linking.openURL(phoneNumber);
+          return Linking.openURL(phone_number);
         }
       })
       .catch((err) => console.log(err));
   };
   // send message when press number
   const message = () => {
-    let phoneNumber = singleContact.phoneNumber;
+    let phone_number = singleContact.phone_number;
 
-    if (phoneNumber) {
-      phoneNumber = `sms:${singleContact.phoneNumber}`;
+    if (phone_number) {
+      phone_number = `sms:${singleContact.phone_number}`;
     } else {
       Alert.alert("Something went wrong, try again");
     }
 
-    Linking.canOpenURL(phoneNumber)
+    Linking.canOpenURL(phone_number)
       .then((supported) => {
         if (!supported) {
           Alert.alert("Number not Available");
         } else {
-          return Linking.openURL(phoneNumber);
+          return Linking.openURL(phone_number);
         }
       })
       .catch((err) => console.log(err));
@@ -100,13 +100,16 @@ const ContactDetailScreen = (props) => {
     <View style={styles.container}>
       <View style={styles.topContainer}>
         <Image
-          source={{ uri: singleContact.imageUrl }}
+          source={{ uri: singleContact.profile_photo[0].url }}
           style={{ width: 80, height: 80 }}
         />
         <View style={styles.names}>
           <Text style={styles.nameText}>{singleContact.salutation}</Text>
-          <Text style={styles.nameText}>{singleContact.firstName}</Text>
-          <Text style={styles.nameText}>{singleContact.lastName}</Text>
+          <Text style={styles.nameText}>{singleContact.first_name}</Text>
+          <Text style={styles.nameText}>{singleContact.last_name}</Text>
+        </View>
+        <View>
+          {/* <Text style={styles.nameText}>{singleContact.position}</Text> */}
         </View>
         <View style={{ flexDirection: "row", marginBottom: 10 }}>
           <QuickContactAccess
@@ -136,7 +139,7 @@ const ContactDetailScreen = (props) => {
         >
           <Text>Mobile</Text>
           <Text onPress={call} style={{ color: Colors.primary }}>
-            {singleContact.phoneNumber}
+            {singleContact.phone_number}
           </Text>
         </View>
         <View

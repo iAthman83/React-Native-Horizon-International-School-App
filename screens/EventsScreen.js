@@ -28,7 +28,7 @@ const EventsScreen = (props) => {
     // const pickPhoto = itemData.item.media((url) => url);
     return (
       <FlatListHorizontalLayout
-        image={itemData.item.media[0].url}
+        image={itemData.item.image[0].url}
         title={itemData.item.title}
         onPress={() => {
           props.navigation.navigate({
@@ -54,7 +54,7 @@ const EventsScreen = (props) => {
       <View style={styles.container}>
         <HeaderText title="Horizon Events" />
         <FlatList
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           data={events}
           renderItem={renderItem}
         />
