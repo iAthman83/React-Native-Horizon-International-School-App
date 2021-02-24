@@ -17,12 +17,13 @@ const CalendarScreen = () => {
   // loaditems method
   const loadItems = (day) => {
     setTimeout(() => {
-      for (let i = -15; i < 85; i++) {
+      for (let i = 0; i < 85; i++) {
         const time = day.timestamp + i * 24 * 60 * 60 * 1000;
         const strTime = timeToString(time);
         if (!items[strTime]) {
           items[strTime] = [];
-          const numItems = Math.floor(Math.random() * 2 + 1);
+          // const numItems = Math.floor(Math.random() * 2 + 1);
+          const numItems = 0;
           for (let j = 0; j < numItems; j++) {
             items[strTime].push({
               name: "Item for " + strTime + " #" + j,
@@ -83,7 +84,7 @@ const CalendarScreen = () => {
       <Agenda
         // testID={testIDs.agenda.CONTAINER}
         items={items}
-        loadItemsForMonth={loadItems}
+        // loadItemsForMonth={loadItems}
         selected={Date()}
         renderItem={renderItem}
         // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
@@ -91,7 +92,7 @@ const CalendarScreen = () => {
         // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
         // maxDate={"2021-12-31"}
         // Max amount of months allowed to scroll to the past. Default = 50
-        pastScrollRange={12}
+        pastScrollRange={3}
         // Max amount of months allowed to scroll to the future. Default = 50
         futureScrollRange={12}
         // renderEmptyDate={renderEmptyDate}
